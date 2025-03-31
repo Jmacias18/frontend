@@ -5,7 +5,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // Puedes usar '0.0.0.0' si quieres acceder desde otra red
-    port: 5200, // Cambia el puerto aquí
+    host: '0.0.0.0', // Permite acceso desde cualquier IP
+    port: 3000, // Puedes cambiarlo si es necesario
+    allowedHosts: [
+      "r0g4kww4wwk08k4k00wosw8c.31.170.165.191.sslip.io"
+    ],
   },
 });
