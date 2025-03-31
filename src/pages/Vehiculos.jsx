@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaCar, FaPlus } from 'react-icons/fa';
 import axiosInstance from '../axiosConfig';
-import '../styles/Vehiculos.css';
+import '../Styles/Vehiculos.css';
 
 function Vehiculos({ userInfo }) {
     const [vehiculos, setVehiculos] = useState([]);
