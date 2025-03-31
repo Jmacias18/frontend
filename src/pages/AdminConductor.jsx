@@ -224,8 +224,8 @@ function AdminConductor() {
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <h2>{editingUser ? 'Editar Conductor' : 'Agregar Nuevo Perfil'}</h2>
-                        <form onSubmit={editingUser ? handleSave : handleSubmit}>
+                        <h2>{editingUser && editingUser.id ? 'Editar Conductor' : 'Agregar Nuevo Perfil'}</h2>
+                        <form onSubmit={editingUser && editingUser.id ? handleSave : handleSubmit}>
                             <label>
                                 Nombre:
                                 <input
@@ -269,7 +269,7 @@ function AdminConductor() {
                                 <input
                                     type="password"
                                     name="contraseña"
-                                    value={editingUser ? editingUser.contraseña : ''}
+                                    value={editingUser && editingUser.id ? '' : editingUser?.contraseña || ''}
                                     onChange={handleChange}
                                     required
                                     onInvalid={(e) => e.target.setCustomValidity('Este campo es obligatorio')}
