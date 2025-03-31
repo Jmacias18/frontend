@@ -1,0 +1,96 @@
+.container {
+    background-color: #e1e9f0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenedor */
+}
+
+/* Estilos para la búsqueda */
+.inp {
+    border-radius: 5px;
+    height: 40px;
+    width: 100%; /* Hacer que el input sea responsivo */
+    max-width: 300px; /* Limitar el ancho máximo */
+    margin: 20px 0; /* Ajustar márgenes */
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px; /* Tamaño de fuente responsivo */
+}
+
+.listcontainer {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    overflow-x: auto; /* Permitir scroll horizontal en dispositivos pequeños */
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px; /* Tamaño de fuente responsivo */
+}
+
+.tabla th, .tabla td {
+    padding: 10px; /* Reducir el padding en dispositivos pequeños */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #000;
+}
+
+/* Media Queries para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .inp {
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .listcontainer {
+        padding: 10px;
+    }
+
+    .tabla th, .tabla td {
+        padding: 8px;
+    }
+
+    .tabla {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .inp {
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .tabla th, .tabla td {
+        padding: 6px;
+    }
+
+    .tabla {
+        font-size: 10px;
+    }
+}
