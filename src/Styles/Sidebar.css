@@ -5,8 +5,7 @@
     justify-content: flex-start;
 }
 
-/*esto es para abrir y cerrar la barra*/
-
+/* Botón para abrir/cerrar */
 .sidebar-toggle-button {
     position: fixed;
     top: 20px;
@@ -21,6 +20,7 @@
     z-index: 1000;
 }
 
+/* Barra lateral */
 .sidebar {
     width: 240px;
     background-color: #1c1919;
@@ -31,7 +31,7 @@
     align-items: center;
     padding: 20px 0;
     overflow: hidden;
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, height 0.3s ease;
     position: fixed;
     top: 0;
     left: 0;
@@ -40,10 +40,13 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
 .sidebar.closed {
     width: 0;
     padding: 0;
 }
+
+/* Botón para cerrar la sidebar */
 .sidebar-close-button {
     position: absolute;
     top: 10px;
@@ -62,7 +65,7 @@
     margin-bottom: 20px;
 }
 
-/* User Info */
+/* Información de usuario */
 .user-info {
     margin-top: 20px;
     text-align: center;
@@ -96,7 +99,7 @@
     color: #fffafa;
 }
 
-/* Navigation Links */
+/* Enlaces de navegación */
 .nav-links {
     width: 100%;
     margin-top: 20px;
@@ -129,10 +132,10 @@
 }
 
 .nav-link:hover {
-    background-color: #333;
+    background-color: #4ba961;
 }
 
-/* Logout Button */
+/* Botón de logout */
 .logout-button {
     position: absolute;
     bottom: 20px;
@@ -162,12 +165,14 @@
     margin-left: 0;
 }
 
-/* Responsividad */
+/* Responsividad para dispositivos móviles */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
-        height: auto;
-        position: relative;
+        height: 100%; /* Esto asegura que ocupe toda la altura en móviles */
+        position: absolute;
+        top: 0; /* Ubicación en la parte superior */
+        left: 0;
         padding: 10px;
     }
 
@@ -178,5 +183,10 @@
 
     .main-content {
         margin-left: 0;
+    }
+
+    /* Cuando el sidebar está abierto en móvil, el contenido se desplaza hacia abajo */
+    .sidebar.open {
+        height: 100vh;
     }
 }
