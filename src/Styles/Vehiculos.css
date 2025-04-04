@@ -168,6 +168,18 @@ button {
 }
 
 @media (max-width: 768px) {
+    /* Ajuste en las cartas */
+    .card {
+        width: calc(50% - 20px); /* Dos cartas por fila */
+    }
+
+    /* Si la pantalla es aún más pequeña, ajustamos a una carta por fila */
+    @media (max-width: 480px) {
+        .card {
+            width: 100%; /* Una carta por fila */
+        }
+    }
+
     .modal input[type="password"] {
         font-size: 0.875rem;
     }

@@ -293,44 +293,6 @@ function AdminPasajero() {
                     </div>
                 </div>
             )}
-
-            <style>{`
-                .modal-overlay {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.5); /* Oscurecer el fondo */
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 1000;
-                }
-
-                .modal-content {
-                    background-color: #fff;
-                    padding: 20px;
-                    border-radius: 8px;
-                    width: 300px;
-                    text-align: center;
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                }
-
-                .modal-content button {
-                    background-color: #4ba961;
-                    color: #fff;
-                    padding: 8px 16px;
-                    border: none;
-                    border-radius: 5px;
-                    margin-top: 20px;
-                    cursor: pointer;
-                }
-
-                .modal-content button:hover {
-                    background-color: #16a34a;
-                }
-            `}</style>
         </div>
     );
 }
