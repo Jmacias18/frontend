@@ -6,6 +6,8 @@ import "../Styles/HistorialConductor.css";
 const HistorialConductor = ({ userInfo }) => {
     const [viajes, setViajes] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1); // Estado para la página actual
+    const [itemsPerPage] = useState(10); // Número de viajes por página
 
     useEffect(() => {
         // Verificar que userInfo esté definido
@@ -40,6 +42,20 @@ const HistorialConductor = ({ userInfo }) => {
         viaje.direccion_fin.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Lógica de paginación
+    const indexOfLastItem = currentPage * itemsPerPage; // Índice del último viaje en la página
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage; // Índice del primer viaje en la página
+    const currentItems = filteredViajes.slice(indexOfFirstItem, indexOfLastItem); // Viajes a mostrar en la página actual
+
+    // Cambiar de página
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Páginas de paginación (basado en el número total de viajes filtrados)
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(filteredViajes.length / itemsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
     return (
         <div className="container">
             <h1>Historial De Viaje Conductor</h1>
@@ -66,7 +82,7 @@ const HistorialConductor = ({ userInfo }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredViajes.map((viaje) => (
+                        {currentItems.map((viaje) => (
                             <tr key={viaje.id}>
                                 <td>{new Date(viaje.fecha).toLocaleDateString()}</td>
                                 <td>{new Date(viaje.fecha).toLocaleTimeString()}</td>
@@ -77,6 +93,28 @@ const HistorialConductor = ({ userInfo }) => {
                         ))}
                     </tbody>
                 </table>
+
+                {/* Controles de Paginación */}
+                <div className="pagination">
+                    <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+                        Anterior
+                    </button>
+                    {pageNumbers.map((number) => (
+                        <button
+                            key={number}
+                            onClick={() => paginate(number)}
+                            className={number === currentPage ? 'active' : ''}
+                        >
+                            {number}
+                        </button>
+                    ))}
+                    <button
+                        onClick={() => paginate(currentPage + 1)}
+                        disabled={currentPage === pageNumbers.length}
+                    >
+                        Siguiente
+                    </button>
+                </div>
             </div>
         </div>
     );
